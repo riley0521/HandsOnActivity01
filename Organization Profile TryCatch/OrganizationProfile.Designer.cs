@@ -243,7 +243,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "OrganizationProfile";
-            this.Text = "Form1";
+            this.Text = "Organization Profile";
             this.Load += new System.EventHandler(this.OrganizationProfile_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
