@@ -73,14 +73,14 @@
             // 
             this.TextStudentNo.Location = new System.Drawing.Point(93, 61);
             this.TextStudentNo.Name = "TextStudentNo";
-            this.TextStudentNo.Size = new System.Drawing.Size(100, 20);
+            this.TextStudentNo.Size = new System.Drawing.Size(200, 20);
             this.TextStudentNo.TabIndex = 1;
             // 
             // TextLastName
             // 
             this.TextLastName.Location = new System.Drawing.Point(93, 105);
             this.TextLastName.Name = "TextLastName";
-            this.TextLastName.Size = new System.Drawing.Size(100, 20);
+            this.TextLastName.Size = new System.Drawing.Size(200, 20);
             this.TextLastName.TabIndex = 3;
             // 
             // label3
@@ -138,7 +138,7 @@
             // 
             this.TextFirstName.Location = new System.Drawing.Point(418, 105);
             this.TextFirstName.Name = "TextFirstName";
-            this.TextFirstName.Size = new System.Drawing.Size(100, 20);
+            this.TextFirstName.Size = new System.Drawing.Size(191, 20);
             this.TextFirstName.TabIndex = 4;
             // 
             // label7
@@ -161,7 +161,7 @@
             // 
             // TextMiddleName
             // 
-            this.TextMiddleName.Location = new System.Drawing.Point(579, 105);
+            this.TextMiddleName.Location = new System.Drawing.Point(656, 105);
             this.TextMiddleName.Name = "TextMiddleName";
             this.TextMiddleName.Size = new System.Drawing.Size(78, 20);
             this.TextMiddleName.TabIndex = 5;
@@ -169,7 +169,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(538, 108);
+            this.label9.Location = new System.Drawing.Point(615, 108);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(22, 13);
             this.label9.TabIndex = 15;
@@ -195,7 +195,7 @@
             // 
             this.TextContactNo.Location = new System.Drawing.Point(418, 188);
             this.TextContactNo.Name = "TextContactNo";
-            this.TextContactNo.Size = new System.Drawing.Size(100, 20);
+            this.TextContactNo.Size = new System.Drawing.Size(239, 20);
             this.TextContactNo.TabIndex = 9;
             // 
             // label10

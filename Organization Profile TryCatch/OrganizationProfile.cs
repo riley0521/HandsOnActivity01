@@ -52,16 +52,23 @@ namespace Organization_Profile_TryCatch
             {
                 CbGender.Items.Add(ListOfGender[i]);
             }
+
+            DatePickerBirthday.MaxDate = new DateTime(year: DateTime.Today.Year - 18, month: DateTime.Today.Month, day: DateTime.Today.Day - 1);
         }
 
         public long StudentNumber(string studNum)
         {
             try
             {
-
+                
                 if(studNum.Length == 0)
                 {
                     throw new ArgumentNullException();
+                }
+
+                if(studNum.Length < 10)
+                {
+                    throw new IndexOutOfRangeException();
                 }
 
                 if (long.TryParse(studNum, out long j))
@@ -83,6 +90,11 @@ namespace Organization_Profile_TryCatch
                 MessageBox.Show("Student Number should not be null", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _StudentNo = 0;
             }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show("Student Number must be atleast 10 numbers", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _StudentNo = 0;
+            }
 
             return _StudentNo;
         }
@@ -95,6 +107,11 @@ namespace Organization_Profile_TryCatch
                 if(Contact.Length == 0)
                 {
                     throw new ArgumentNullException();
+                }
+
+                if (Contact.Length != 11)
+                {
+                    throw new IndexOutOfRangeException();
                 }
 
                 if (Regex.IsMatch(Contact, @"^[0-9]{10,11}$"))
@@ -113,6 +130,11 @@ namespace Organization_Profile_TryCatch
             catch (ArgumentNullException ex)
             {
                 MessageBox.Show("Contact number should not be null", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _ContactNo = 0;
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show("Contact number must be 11 numbers", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _ContactNo = 0;
             }
 
@@ -177,7 +199,11 @@ namespace Organization_Profile_TryCatch
 
                 if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
                 {
+                    
                     _Age = Int32.Parse(age);
+                    if (_Age < 17 || _Age > 100)
+                        throw new IndexOutOfRangeException();
+                        
                 }
                 else
                 {
@@ -190,6 +216,11 @@ namespace Organization_Profile_TryCatch
             } catch(ArgumentNullException ex)
             {
                 MessageBox.Show("Age should not be null", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _Age = 0;
+            }
+            catch (IndexOutOfRangeException ez)
+            {
+                MessageBox.Show("Age must be greater than 17 and less than 100", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _Age = 0;
             }
 
@@ -222,25 +253,21 @@ namespace Organization_Profile_TryCatch
 
             if(StudentInformationClass.SetFullName.Length == 0)
             {
-                MessageBox.Show("Full name must not be empty", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (StudentInformationClass.SetStudentNo == 0)
             {
-                MessageBox.Show("Student number should not be 0", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (StudentInformationClass.SetContactNo == 0)
             {
-                MessageBox.Show("Contact number should not be 0", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (StudentInformationClass.SetAge == 0)
             {
-                MessageBox.Show("Age should not be 0", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -259,7 +286,7 @@ namespace Organization_Profile_TryCatch
             TextContactNo.Text = "";
             CbPrograms.SelectedIndex = -1;
             CbGender.SelectedIndex = -1;
-            DatePickerBirthday.ResetText();
+            DatePickerBirthday.Value = new DateTime(year: DateTime.Today.Year - 18, month: DateTime.Today.Month, day: DateTime.Today.Day - 1);
         }
 
         private void DatePickerBirthday_ValueChanged(object sender, EventArgs e)
